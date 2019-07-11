@@ -12,12 +12,15 @@ use Squirrel\Strings\Filter\LimitConsecutiveUnixNewlinesFilter;
 use Squirrel\Strings\Filter\LowercaseFilter;
 use Squirrel\Strings\Filter\NormalizeLettersToAsciiFilter;
 use Squirrel\Strings\Filter\NormalizeNewlinesToUnixStyleFilter;
+use Squirrel\Strings\Filter\NormalizeToAlphanumericFilter;
+use Squirrel\Strings\Filter\RemoveEmailsFilter;
 use Squirrel\Strings\Filter\RemoveExcessSpacesFilter;
 use Squirrel\Strings\Filter\RemoveHTMLTagsFilter;
 use Squirrel\Strings\Filter\RemoveNonAlphanumericFilter;
 use Squirrel\Strings\Filter\RemoveNonAsciiAndControlCharactersFilter;
 use Squirrel\Strings\Filter\RemoveNonNumericFilter;
 use Squirrel\Strings\Filter\RemoveNonUTF8CharactersFilter;
+use Squirrel\Strings\Filter\RemoveURLsFilter;
 use Squirrel\Strings\Filter\ReplaceNewlinesWithParagraphsAndBreaksFilter;
 use Squirrel\Strings\Filter\ReplaceNewlinesWithSpacesFilter;
 use Squirrel\Strings\Filter\ReplaceNonAlphanumericFilter;
@@ -56,12 +59,15 @@ class StringFilterPass implements CompilerPassInterface
         LowercaseFilter::class,
         NormalizeLettersToAsciiFilter::class,
         NormalizeNewlinesToUnixStyleFilter::class,
+        NormalizeToAlphanumericFilter::class,
         RemoveExcessSpacesFilter::class,
+        RemoveEmailsFilter::class,
         RemoveHTMLTagsFilter::class,
         RemoveNonAlphanumericFilter::class,
         RemoveNonAsciiAndControlCharactersFilter::class,
         RemoveNonNumericFilter::class,
         RemoveNonUTF8CharactersFilter::class,
+        RemoveURLsFilter::class,
         ReplaceNewlinesWithParagraphsAndBreaksFilter::class,
         ReplaceNewlinesWithSpacesFilter::class,
         'ReplaceNonAlphanumericWithDash' => ReplaceNonAlphanumericFilter::class,

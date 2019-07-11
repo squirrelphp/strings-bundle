@@ -22,7 +22,7 @@
     "require": {
         "php": "^7.2",
         "symfony/dependency-injection": "^4.0",
-        "squirrelphp/strings": "^0.7"
+        "squirrelphp/strings": "^0.7.1"
     },
     "require-dev": {
         "captainhook/plugin-composer": "^4.0",
