@@ -19,8 +19,8 @@ class StringFilterPassTest extends \PHPUnit\Framework\TestCase
 
         $this->processCompilerPass($container);
 
-        // service container + selector + 28 default filters
-        $this->assertEquals(33, \count($container->getDefinitions()));
+        // service container + selector + 33 default filters
+        $this->assertEquals(35, \count($container->getDefinitions()));
 
         // Make sure all definitions exist that we expect
         $this->assertTrue($container->hasDefinition(StringFilterSelectInterface::class));
@@ -31,7 +31,7 @@ class StringFilterPassTest extends \PHPUnit\Framework\TestCase
 
         $argument = $definition->getArgument(0);
 
-        $this->assertEquals(31, \count($argument));
+        $this->assertEquals(33, \count($argument));
 
         $container->compile();
     }

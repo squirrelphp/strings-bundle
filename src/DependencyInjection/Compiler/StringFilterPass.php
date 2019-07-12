@@ -13,6 +13,7 @@ use Squirrel\Strings\Filter\LowercaseFilter;
 use Squirrel\Strings\Filter\NormalizeLettersToAsciiFilter;
 use Squirrel\Strings\Filter\NormalizeNewlinesToUnixStyleFilter;
 use Squirrel\Strings\Filter\NormalizeToAlphanumericFilter;
+use Squirrel\Strings\Filter\NormalizeToAlphanumericLowercaseFilter;
 use Squirrel\Strings\Filter\RemoveEmailsFilter;
 use Squirrel\Strings\Filter\RemoveExcessSpacesFilter;
 use Squirrel\Strings\Filter\RemoveHTMLTagsFilter;
@@ -21,11 +22,12 @@ use Squirrel\Strings\Filter\RemoveNonAsciiAndControlCharactersFilter;
 use Squirrel\Strings\Filter\RemoveNonNumericFilter;
 use Squirrel\Strings\Filter\RemoveNonUTF8CharactersFilter;
 use Squirrel\Strings\Filter\RemoveURLsFilter;
-use Squirrel\Strings\Filter\ReplaceNewlinesWithParagraphsAndBreaksFilter;
+use Squirrel\Strings\Filter\RemoveZeroWidthSpacesFilter;
 use Squirrel\Strings\Filter\ReplaceNewlinesWithSpacesFilter;
 use Squirrel\Strings\Filter\ReplaceNonAlphanumericFilter;
 use Squirrel\Strings\Filter\ReplaceTabsWithSpacesFilter;
 use Squirrel\Strings\Filter\ReplaceUnicodeWhitespacesFilter;
+use Squirrel\Strings\Filter\ReplaceUnixStyleNewlinesWithParagraphsAndBreaksFilter;
 use Squirrel\Strings\Filter\SnakeCaseToCamelCaseFilter;
 use Squirrel\Strings\Filter\StreamlineInputNoNewlinesFilter;
 use Squirrel\Strings\Filter\StreamlineInputWithNewlinesFilter;
@@ -60,6 +62,7 @@ class StringFilterPass implements CompilerPassInterface
         NormalizeLettersToAsciiFilter::class,
         NormalizeNewlinesToUnixStyleFilter::class,
         NormalizeToAlphanumericFilter::class,
+        NormalizeToAlphanumericLowercaseFilter::class,
         RemoveExcessSpacesFilter::class,
         RemoveEmailsFilter::class,
         RemoveHTMLTagsFilter::class,
@@ -68,7 +71,8 @@ class StringFilterPass implements CompilerPassInterface
         RemoveNonNumericFilter::class,
         RemoveNonUTF8CharactersFilter::class,
         RemoveURLsFilter::class,
-        ReplaceNewlinesWithParagraphsAndBreaksFilter::class,
+        RemoveZeroWidthSpacesFilter::class,
+        ReplaceUnixStyleNewlinesWithParagraphsAndBreaksFilter::class,
         ReplaceNewlinesWithSpacesFilter::class,
         'ReplaceNonAlphanumericWithDash' => ReplaceNonAlphanumericFilter::class,
         ReplaceTabsWithSpacesFilter::class,
@@ -80,8 +84,8 @@ class StringFilterPass implements CompilerPassInterface
         UppercaseFilter::class,
         UppercaseFirstCharacterFilter::class,
         UppercaseWordsFirstCharacterFilter::class,
-        'WrapLongWordsNoHTML80Chars' => WrapLongWordsNoHTMLFilter::class,
-        'WrapLongWordsWithHTML80Chars' => WrapLongWordsWithHTMLFilter::class,
+        'WrapLongWordsNoHTML20Chars' => WrapLongWordsNoHTMLFilter::class,
+        'WrapLongWordsWithHTML20Chars' => WrapLongWordsWithHTMLFilter::class,
     ];
 
     public function process(ContainerBuilder $container): void
