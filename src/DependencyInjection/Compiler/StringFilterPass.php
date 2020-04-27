@@ -49,10 +49,7 @@ use Symfony\Component\DependencyInjection\Reference;
  */
 class StringFilterPass implements CompilerPassInterface
 {
-    /**
-     * @var array
-     */
-    private $defaultFilters = [
+    private array $defaultFilters = [
         CamelCaseToSnakeCaseFilter::class,
         DecodeAllHTMLEntitiesFilter::class,
         DecodeBasicHTMLEntitiesFilter::class,

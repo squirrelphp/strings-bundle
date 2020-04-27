@@ -13,10 +13,7 @@ use Symfony\Component\DependencyInjection\Definition;
  */
 class StringTesterPass implements CompilerPassInterface
 {
-    /**
-     * @var array
-     */
-    private $defaultTesters = [
+    private array $defaultTesters = [
         ValidUTF8Tester::class,
         ValidDateTimeTester::class,
     ];

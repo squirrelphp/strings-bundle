@@ -1,7 +1,7 @@
 Squirrel Strings Integration for Symfony
 ========================================
 
-[![Build Status](https://img.shields.io/travis/com/squirrelphp/strings-bundle.svg)](https://travis-ci.com/squirrelphp/strings-bundle) [![Test Coverage](https://api.codeclimate.com/v1/badges/f6e0f7b91f266787ce0c/test_coverage)](https://codeclimate.com/github/squirrelphp/strings-bundle/test_coverage) ![PHPStan](https://img.shields.io/badge/style-level%207-success.svg?style=flat-round&label=phpstan) [![Packagist Version](https://img.shields.io/packagist/v/squirrelphp/strings-bundle.svg?style=flat-round)](https://packagist.org/packages/squirrelphp/strings-bundle)  [![PHP Version](https://img.shields.io/packagist/php-v/squirrelphp/strings-bundle.svg)](https://packagist.org/packages/squirrelphp/strings-bundle) [![Software License](https://img.shields.io/badge/license-MIT-success.svg?style=flat-round)](LICENSE)
+[![Build Status](https://img.shields.io/travis/com/squirrelphp/strings-bundle.svg)](https://travis-ci.com/squirrelphp/strings-bundle) [![Test Coverage](https://api.codeclimate.com/v1/badges/f6e0f7b91f266787ce0c/test_coverage)](https://codeclimate.com/github/squirrelphp/strings-bundle/test_coverage) ![PHPStan](https://img.shields.io/badge/style-level%208-success.svg?style=flat-round&label=phpstan) [![Packagist Version](https://img.shields.io/packagist/v/squirrelphp/strings-bundle.svg?style=flat-round)](https://packagist.org/packages/squirrelphp/strings-bundle)  [![PHP Version](https://img.shields.io/packagist/php-v/squirrelphp/strings-bundle.svg)](https://packagist.org/packages/squirrelphp/strings-bundle) [![Software License](https://img.shields.io/badge/license-MIT-success.svg?style=flat-round)](LICENSE)
 
 Integration of [squirrelphp/strings](https://github.com/squirrelphp/strings) into Symfony through service tags and bundle configuration.
 
@@ -66,7 +66,7 @@ function (\Squirrel\Strings\StringFilterSelectInterface $selector) {
 
     $string = $selector->getFilter('ReplaceNewlinesWithSpaces')
         ->filter($string);
-        
+
     // Outputs "hello  thanks a lot! bye"
     echo $string;
 }
@@ -89,7 +89,7 @@ class NewsletterChangeAction
      * @StringFilter({"StreamlineInputNoNewlines","RemoveHTMLTags"})
      */
     public $firstName = '';
-    
+
     /**
      * @StringFilter("RemoveNonAlphanumeric")
      */
@@ -98,7 +98,7 @@ class NewsletterChangeAction
 ```
 
 You can run one or more string filters and use any of the default list of filters or any of [your own filters which you added](#adding-new-filters). The filters are run as an early PRE_SUBMIT form event.
-    
+
 #### Adding new filters
 
 Create a class, implement `Squirrel\Strings\StringFilterInterface` and tag the service with `squirrel.strings.filter` in a Symfony config file like this:
@@ -142,7 +142,7 @@ services:
             - '6789'
         tags:
             - { name: squirrel.strings.random, generator: MyGenerator }
-                
+
     MyOtherCustomRandomGenerator:
         class: Squirrel\Strings\Random\GeneratorUnicode
         arguments:

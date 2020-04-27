@@ -19,9 +19,9 @@ use Symfony\Component\DependencyInjection\Reference;
 class RandomStringGeneratorPass implements CompilerPassInterface
 {
     /**
-     * @var array
+     * @var array<string, string> $defaultGenerators
      */
-    private $defaultGenerators = [
+    private array $defaultGenerators = [
         '62Characters' => "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
         '36Characters' => "abcdefghijklmnopqrstuvwxyz0123456789",
         'ReadfriendlyUppercase' => "234579ACDEFGHKMNPQRSTUVWXYZ",
