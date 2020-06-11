@@ -21,9 +21,9 @@ class ExtensionPassTest extends \PHPUnit\Framework\TestCase
 
         $this->processCompilerPass($container);
 
-        // service container + filter selector + 33 default filters + random selector + 4 generators
+        // service container + filter selector + 34 default filters + random selector + 4 generators
         // + annotation processor
-        $this->assertEquals(41, \count($container->getDefinitions()));
+        $this->assertEquals(42, \count($container->getDefinitions()));
 
         // Make sure all definitions exist that we expect
         $this->assertTrue($container->hasDefinition(StringFilterSelectInterface::class));
@@ -41,9 +41,9 @@ class ExtensionPassTest extends \PHPUnit\Framework\TestCase
 
         $this->processCompilerPass($container);
 
-        // service container + filter selector + 33 default filters + random selector + 4 generators
+        // service container + filter selector + 34 default filters + random selector + 4 generators
         // + annotation processor + form type extension + twig extension + form.factory + twig
-        $this->assertEquals(45, \count($container->getDefinitions()));
+        $this->assertEquals(46, \count($container->getDefinitions()));
 
         // Make sure all definitions exist that we expect
         $this->assertTrue($container->hasDefinition(StringFilterSelectInterface::class));
