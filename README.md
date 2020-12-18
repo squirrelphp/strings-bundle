@@ -97,6 +97,23 @@ class NewsletterChangeAction
 }
 ```
 
+With PHP8 you can use attributes instead of annotations:
+
+```php
+<?php
+
+use Squirrel\Strings\Annotation\StringFilter;
+
+class NewsletterChangeAction
+{
+    #[StringFilter("StreamlineInputNoNewlines","RemoveHTMLTags")]
+    public string $firstName = '';
+
+    #[StringFilter("RemoveNonAlphanumeric")]
+    public string $confirmToken = '';
+}
+```
+
 You can run one or more string filters and use any of the default list of filters or any of [your own filters which you added](#adding-new-filters). The filters are run as an early PRE_SUBMIT form event.
 
 Beware: It only works if you map your class properties (`$firstName` and `$lastName` in this example) to the form without custom property paths, so the names used in the form have to be identical to the property names in the class. As long as you do not specify `property_path` in your form you are safe.

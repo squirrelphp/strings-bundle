@@ -2,9 +2,11 @@ env:
     global:
         - CC_TEST_REPORTER_ID=4fcc7cd3d969a1c9138bc05862c70ea7776670f18e15c8508e3827332578dac8
         - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+        - XDEBUG_MODE=coverage
 language: php
 php:
     - '7.4'
+    - '8.0'
 
 before_script:
     - composer self-update
@@ -16,10 +18,10 @@ before_script:
 
 script:
     - composer phpunit_clover
-    - composer phpstan
-    - composer psalm
+    - if [ "${TRAVIS_PHP_VERSION:0:1}" == "8" ]; then composer phpstan; fi
+    - if [ "${TRAVIS_PHP_VERSION:0:1}" == "8" ]; then composer psalm; fi
     - composer phpcs
-    - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build  -t clover --exit-code $TRAVIS_TEST_RESULT; fi
+    - if [ "$TRAVIS_PULL_REQUEST" == "false" -a "${TRAVIS_PHP_VERSION:0:1}" == "8" ]; then ./cc-test-reporter after-build  -t clover --exit-code $TRAVIS_TEST_RESULT; fi
 
 notifications:
     email: false
