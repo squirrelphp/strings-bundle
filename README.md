@@ -149,7 +149,7 @@ services:
             - { name: squirrel.strings.random, generator: MyGenerator }
 ```
 
-The generator name is used when getting a generator via the `getGenerator` method from the service `Squirrel\Strings\RandomStringGeneratorSelectInterface`, or if you want to inject the random string generator directly just convert the generator name to snake case, so in this example you could inject the service with `@squirrel.strings.random.my_generator`.
+The generator name in camel case is used when getting a generator via the `getGenerator` method from the service `Squirrel\Strings\RandomStringGeneratorSelectInterface` (so `62Characters` instead of `62_characters`, and `ReadfriendlyLowercase` instead of `readfriendly_lowercase`), or if you want to inject the random string generator directly just convert the generator name to snake case, so in this example you could inject the service with `@squirrel.strings.random.my_generator`.
 
 The classes `Squirrel\Strings\Random\GeneratorAscii` and `Squirrel\Strings\Random\GeneratorUnicode` are good base classes to use for your own needs, where you only need to define the allowed characters in the constructor:
 

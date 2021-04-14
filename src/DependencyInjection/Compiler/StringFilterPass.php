@@ -30,6 +30,7 @@ use Squirrel\Strings\Filter\ReplaceTabsWithSpacesFilter;
 use Squirrel\Strings\Filter\ReplaceUnicodeWhitespacesFilter;
 use Squirrel\Strings\Filter\ReplaceUnixStyleNewlinesWithParagraphsAndBreaksFilter;
 use Squirrel\Strings\Filter\SnakeCaseToCamelCaseFilter;
+use Squirrel\Strings\Filter\StreamlineEmailFilter;
 use Squirrel\Strings\Filter\StreamlineInputNoNewlinesFilter;
 use Squirrel\Strings\Filter\StreamlineInputWithNewlinesFilter;
 use Squirrel\Strings\Filter\TrimFilter;
@@ -77,6 +78,7 @@ class StringFilterPass implements CompilerPassInterface
         ReplaceTabsWithSpacesFilter::class,
         ReplaceUnicodeWhitespacesFilter::class,
         SnakeCaseToCamelCaseFilter::class,
+        StreamlineEmailFilter::class,
         StreamlineInputNoNewlinesFilter::class,
         StreamlineInputWithNewlinesFilter::class,
         TrimFilter::class,
