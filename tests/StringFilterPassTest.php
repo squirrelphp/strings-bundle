@@ -13,7 +13,7 @@ use Symfony\Component\DependencyInjection\Definition;
 
 class StringFilterPassTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault(): void
     {
         $container = new ContainerBuilder();
 
@@ -36,7 +36,7 @@ class StringFilterPassTest extends \PHPUnit\Framework\TestCase
         $container->compile();
     }
 
-    public function testNoFilterName()
+    public function testNoFilterName(): void
     {
         $this->expectException(StringException::class);
 
@@ -53,7 +53,7 @@ class StringFilterPassTest extends \PHPUnit\Framework\TestCase
         $this->processCompilerPass($container);
     }
 
-    public function testDuplicateFilterName()
+    public function testDuplicateFilterName(): void
     {
         $this->expectException(StringException::class);
 
@@ -70,7 +70,7 @@ class StringFilterPassTest extends \PHPUnit\Framework\TestCase
         $this->processCompilerPass($container);
     }
 
-    protected function processCompilerPass(ContainerBuilder $container)
+    protected function processCompilerPass(ContainerBuilder $container): void
     {
         (new StringFilterPass())->process($container);
     }

@@ -2,8 +2,8 @@
 
 namespace Squirrel\StringsBundle\DependencyInjection\Compiler;
 
-use Squirrel\Strings\Annotation\StringFilterExtension;
-use Squirrel\Strings\Annotation\StringFilterProcessor;
+use Squirrel\Strings\Attribute\StringFilterExtension;
+use Squirrel\Strings\Attribute\StringFilterProcessor;
 use Squirrel\Strings\RandomStringGeneratorSelectInterface;
 use Squirrel\Strings\StringFilterSelectInterface;
 use Squirrel\Strings\Twig\StringExtension;
@@ -22,7 +22,6 @@ class ExtensionPass implements CompilerPassInterface
     public function process(ContainerBuilder $container): void
     {
         $container->setDefinition(StringFilterProcessor::class, new Definition(StringFilterProcessor::class, [
-            new Reference('annotation_reader'),
             new Reference(StringFilterSelectInterface::class),
         ]));
 

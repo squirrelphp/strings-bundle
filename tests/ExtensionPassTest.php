@@ -2,8 +2,8 @@
 
 namespace Squirrel\StringsBundle\Tests;
 
-use Squirrel\Strings\Annotation\StringFilterExtension;
-use Squirrel\Strings\Annotation\StringFilterProcessor;
+use Squirrel\Strings\Attribute\StringFilterExtension;
+use Squirrel\Strings\Attribute\StringFilterProcessor;
 use Squirrel\Strings\Filter\TrimFilter;
 use Squirrel\Strings\StringFilterSelectInterface;
 use Squirrel\Strings\Twig\StringExtension;
@@ -15,7 +15,7 @@ use Symfony\Component\DependencyInjection\Definition;
 
 class ExtensionPassTest extends \PHPUnit\Framework\TestCase
 {
-    public function testNoFormNoTwig()
+    public function testNoFormNoTwig(): void
     {
         $container = new ContainerBuilder();
 
@@ -32,7 +32,7 @@ class ExtensionPassTest extends \PHPUnit\Framework\TestCase
         $container->compile();
     }
 
-    public function testFormAndTwig()
+    public function testFormAndTwig(): void
     {
         $container = new ContainerBuilder();
 
@@ -54,7 +54,7 @@ class ExtensionPassTest extends \PHPUnit\Framework\TestCase
         $container->compile();
     }
 
-    protected function processCompilerPass(ContainerBuilder $container)
+    protected function processCompilerPass(ContainerBuilder $container): void
     {
         (new StringFilterPass())->process($container);
         (new RandomStringGeneratorPass())->process($container);

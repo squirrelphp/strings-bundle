@@ -41,7 +41,7 @@ class RandomStringGeneratorPass implements CompilerPassInterface
 
         // Get all random string generator services and create constructor argument for Selector
         $taggedServicesWithNames = $this->createGeneratorDefinitionList(
-            $container->findTaggedServiceIds('squirrel.strings.random')
+            $container->findTaggedServiceIds('squirrel.strings.random'),
         );
 
         // Add generators to Selector class

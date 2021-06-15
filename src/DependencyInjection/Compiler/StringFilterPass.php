@@ -108,7 +108,7 @@ class StringFilterPass implements CompilerPassInterface
 
         // Get all string filter services and create constructor argument for Selector
         $taggedServicesWithNames = $this->createFilterDefinitionList(
-            $container->findTaggedServiceIds('squirrel.strings.filter')
+            $container->findTaggedServiceIds('squirrel.strings.filter'),
         );
 
         // Add filters to Selector class

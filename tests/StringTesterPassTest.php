@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class StringTesterPassTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault(): void
     {
         $container = new ContainerBuilder();
 
@@ -25,7 +25,7 @@ class StringTesterPassTest extends \PHPUnit\Framework\TestCase
         $container->compile();
     }
 
-    protected function processCompilerPass(ContainerBuilder $container)
+    protected function processCompilerPass(ContainerBuilder $container): void
     {
         (new StringTesterPass())->process($container);
     }

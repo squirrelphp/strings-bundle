@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Definition;
 
 class RandomStringGeneratorPassTest extends \PHPUnit\Framework\TestCase
 {
-    public function testDefault()
+    public function testDefault(): void
     {
         $container = new ContainerBuilder();
 
@@ -34,7 +34,7 @@ class RandomStringGeneratorPassTest extends \PHPUnit\Framework\TestCase
         $container->compile();
     }
 
-    public function testNoGeneratorName()
+    public function testNoGeneratorName(): void
     {
         $this->expectException(StringException::class);
 
@@ -50,7 +50,7 @@ class RandomStringGeneratorPassTest extends \PHPUnit\Framework\TestCase
         $this->processCompilerPass($container);
     }
 
-    public function testDuplicateGeneratorName()
+    public function testDuplicateGeneratorName(): void
     {
         $this->expectException(StringException::class);
 
@@ -66,7 +66,7 @@ class RandomStringGeneratorPassTest extends \PHPUnit\Framework\TestCase
         $this->processCompilerPass($container);
     }
 
-    protected function processCompilerPass(ContainerBuilder $container)
+    protected function processCompilerPass(ContainerBuilder $container): void
     {
         (new RandomStringGeneratorPass())->process($container);
     }
