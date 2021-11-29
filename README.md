@@ -76,28 +76,7 @@ You can also directly typehint a filter class, like `Squirrel\Strings\Filter\Nor
 
 #### Form string filtering
 
-This bundle automatically configures string filters for your form values that you can use via annotations, example:
-
-```php
-<?php
-
-use Squirrel\Strings\Annotation\StringFilter;
-
-class NewsletterChangeAction
-{
-    /**
-     * @StringFilter({"StreamlineInputNoNewlines","RemoveHTMLTags"})
-     */
-    public string $firstName = '';
-
-    /**
-     * @StringFilter("RemoveNonAlphanumeric")
-     */
-    public string $confirmToken = '';
-}
-```
-
-With PHP8 you can use attributes instead of annotations:
+This bundle automatically configures string filters for your form values that you can use via attributes, example:
 
 ```php
 <?php
@@ -129,7 +108,7 @@ services:
             - { name: squirrel.strings.filter, filter: MyCustomStringFilter }
 ```
 
-The filter will be available in `Squirrel\Strings\StringFilterSelectInterface` under the name `MyCustomStringFilter` (the `filter` value you defined for the tag) as well as in StringFilter annotations.
+The filter will be available in `Squirrel\Strings\StringFilterSelectInterface` under the name `MyCustomStringFilter` (the `filter` value you defined for the tag) as well as in the StringFilter attribute.
 
 ### Random string generators
 
