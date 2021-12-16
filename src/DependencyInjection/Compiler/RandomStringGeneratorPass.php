@@ -56,12 +56,12 @@ class RandomStringGeneratorPass implements CompilerPassInterface
             foreach ($tags as $attributes) {
                 // Generator name not set or zero length, although it is mandatory
                 if (!isset($attributes['generator']) || \strlen($attributes['generator']) === 0) {
-                    throw Debug::createException(StringException::class, [], 'Random string generator name not provided for ' . Debug::sanitizeData($attributes['generator']));
+                    throw Debug::createException(StringException::class, 'Random string generator name not provided for ' . Debug::sanitizeData($attributes['generator']));
                 }
 
                 // Generator with the same name already exists
                 if (isset($taggedServicesWithNames[$attributes['generator']])) {
-                    throw Debug::createException(StringException::class, [], 'Random string generator name is used twice: ' . Debug::sanitizeData($attributes['generator']) . ' with service ' . $id);
+                    throw Debug::createException(StringException::class, 'Random string generator name is used twice: ' . Debug::sanitizeData($attributes['generator']) . ' with service ' . $id);
                 }
 
                 $taggedServicesWithNames[$attributes['generator']] = new Reference($id);

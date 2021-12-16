@@ -123,12 +123,12 @@ class StringFilterPass implements CompilerPassInterface
             foreach ($tags as $attributes) {
                 // Filter name not set or zero length, although it is mandatory
                 if (!isset($attributes['filter']) || \strlen($attributes['filter']) === 0) {
-                    throw Debug::createException(StringException::class, [], 'String filter name not provided for ' . Debug::sanitizeData($attributes['filter']));
+                    throw Debug::createException(StringException::class, 'String filter name not provided for ' . Debug::sanitizeData($attributes['filter']));
                 }
 
                 // Filter with the same name already exists
                 if (isset($taggedServicesWithNames[$attributes['filter']])) {
-                    throw Debug::createException(StringException::class, [], 'String filter name is used twice: ' . Debug::sanitizeData($attributes['filter']) . ' with service ' . $id);
+                    throw Debug::createException(StringException::class, 'String filter name is used twice: ' . Debug::sanitizeData($attributes['filter']) . ' with service ' . $id);
                 }
 
                 $taggedServicesWithNames[$attributes['filter']] = new Reference($id);

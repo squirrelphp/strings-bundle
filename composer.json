@@ -22,7 +22,8 @@
     "require": {
         "php": ">=8.0",
         "symfony/dependency-injection": "^5.0|^6.0",
-        "squirrelphp/strings": "^0.10"
+        "squirrelphp/debug": "^2.0",
+        "squirrelphp/strings": "^0.11"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.3",
