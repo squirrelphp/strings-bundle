@@ -14,9 +14,6 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Twig\Extension\AbstractExtension;
 
-/**
- * Add random string generators to offer random string generation
- */
 class ExtensionPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container): void
@@ -25,6 +22,7 @@ class ExtensionPass implements CompilerPassInterface
             new Reference(StringFilterSelectInterface::class),
         ]));
 
+        // Add string filter attribute support for form data classes
         if ($container->has('form.factory') && \class_exists(AbstractTypeExtension::class)) {
             $formExtension = new Definition(StringFilterExtension::class, [
                 new Reference(StringFilterProcessor::class),
@@ -34,6 +32,7 @@ class ExtensionPass implements CompilerPassInterface
             $container->setDefinition(StringFilterExtension::class, $formExtension);
         }
 
+        // Add access to string filters and random string generators in twig
         if ($container->has('twig') && \class_exists(AbstractExtension::class)) {
             $twigExtension = new Definition(StringExtension::class, [
                 new Reference(StringFilterSelectInterface::class),
