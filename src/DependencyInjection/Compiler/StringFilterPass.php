@@ -16,7 +16,7 @@ use Squirrel\Strings\Filter\NormalizeToAlphanumericFilter;
 use Squirrel\Strings\Filter\NormalizeToAlphanumericLowercaseFilter;
 use Squirrel\Strings\Filter\RemoveEmailsFilter;
 use Squirrel\Strings\Filter\RemoveExcessSpacesFilter;
-use Squirrel\Strings\Filter\RemoveHTMLTagCharacters;
+use Squirrel\Strings\Filter\RemoveHTMLTagCharactersFilter;
 use Squirrel\Strings\Filter\RemoveHTMLTagsFilter;
 use Squirrel\Strings\Filter\RemoveNonAlphabeticFilter;
 use Squirrel\Strings\Filter\RemoveNonAlphanumericFilter;
@@ -66,7 +66,7 @@ class StringFilterPass implements CompilerPassInterface
         RemoveExcessSpacesFilter::class,
         RemoveEmailsFilter::class,
         RemoveHTMLTagsFilter::class,
-        RemoveHTMLTagCharacters::class,
+        RemoveHTMLTagCharactersFilter::class,
         RemoveNonAlphanumericFilter::class,
         RemoveNonAlphabeticFilter::class,
         RemoveNonAsciiAndControlCharactersFilter::class,
