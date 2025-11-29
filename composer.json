@@ -20,19 +20,19 @@
         }
     ],
     "require": {
-        "php": ">=8.2",
-        "symfony/dependency-injection": "^7.0",
+        "php": ">=8.4",
+        "symfony/dependency-injection": "^7.0|^8.0",
         "squirrelphp/debug": "^2.0",
         "squirrelphp/strings": "^2.0"
     },
     "require-dev": {
         "captainhook/captainhook-phar": "^5.0",
         "captainhook/hook-installer": "^1.0",
-        "phpunit/phpunit": "^11.2",
-        "symfony/finder": "^7.0",
-        "symfony/form": "^7.0",
-        "symfony/process": "^7.0",
-        "symfony/twig-bundle": "^7.0"
+        "phpunit/phpunit": "^12.0",
+        "symfony/finder": "^7.0|^8.0",
+        "symfony/form": "^7.0|^8.0",
+        "symfony/process": "^7.0|^8.0",
+        "symfony/twig-bundle": "^7.0|^8.0"
     },
     "suggest": {
         "squirrelphp/strings-bundle": "Symfony integration of squirrelphp/strings"
