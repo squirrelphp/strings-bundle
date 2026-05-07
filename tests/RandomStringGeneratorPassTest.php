@@ -17,19 +17,22 @@ class RandomStringGeneratorPassTest extends \PHPUnit\Framework\TestCase
 
         $this->processCompilerPass($container);
 
-        // service container + selector + 4 default generators
-        $this->assertEquals(6, \count($container->getDefinitions()));
+        // service container + selector + 5 default generators
+        $this->assertEquals(7, \count($container->getDefinitions()));
 
         // Make sure all definitions exist that we expect
         $this->assertTrue($container->hasDefinition(RandomStringGeneratorSelectInterface::class));
         $this->assertTrue($container->hasDefinition('squirrel.strings.random.62_characters'));
+        $this->assertTrue($container->hasDefinition('squirrel.strings.random.36_characters'));
         $this->assertTrue($container->hasDefinition('squirrel.strings.random.readfriendly_uppercase'));
+        $this->assertTrue($container->hasDefinition('squirrel.strings.random.readfriendly_lowercase'));
+        $this->assertTrue($container->hasDefinition('squirrel.strings.random.numbers'));
 
         $definition = $container->getDefinition(RandomStringGeneratorSelectInterface::class);
 
         $argument = $definition->getArgument(0);
 
-        $this->assertEquals(4, \count($argument));
+        $this->assertEquals(5, \count($argument));
 
         $container->compile();
     }

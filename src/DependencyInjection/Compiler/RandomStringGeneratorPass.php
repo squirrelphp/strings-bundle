@@ -22,10 +22,11 @@ class RandomStringGeneratorPass implements CompilerPassInterface
      * @var array<string, string> $defaultGenerators
      */
     private array $defaultGenerators = [
-        '62Characters' => "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
-        '36Characters' => "abcdefghijklmnopqrstuvwxyz0123456789",
-        'ReadfriendlyUppercase' => "234579ACDEFGHKMNPQRSTUVWXYZ",
-        'ReadfriendlyLowercase' => "234579acdefghkmnpqrstuvwxyz",
+        '62Characters' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+        '36Characters' => 'abcdefghijklmnopqrstuvwxyz0123456789',
+        'ReadfriendlyUppercase' => '234579ACDEFGHKMNPQRSTUVWXYZ',
+        'ReadfriendlyLowercase' => '234579acdefghkmnpqrstuvwxyz',
+        'Numbers' => '0123456789',
     ];
 
     public function process(ContainerBuilder $container): void
